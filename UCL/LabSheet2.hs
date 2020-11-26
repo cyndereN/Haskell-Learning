@@ -1,3 +1,11 @@
+import qualified Data.Char 
+capitalized :: String -> String
+capitalized [] = []
+capitalized (head:tail) = Data.Char.toUpper head : lowered tail
+  where
+    lowered [] = []
+    lowered (head:tail) = Data.Char.toLower head : lowered tail
+
 insert :: Ord a => a -> [a] -> [a]
 insert x [] = [x]
 insert x (y:ys) 

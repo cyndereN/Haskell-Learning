@@ -34,3 +34,4 @@ capitalised (head:tail) = Char.toUpper head : map Char.toLower tail
 title :: [String] -> [String]
 title [] = []
 title (x:y) =  capitalised x : title y
+
