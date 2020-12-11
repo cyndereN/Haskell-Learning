@@ -77,6 +77,33 @@ hailstoneLen :: Integer -> Integer
 hailstoneLen n = intListLength (hailstoneSeq n) - 1
     hailstoneLen 5
 => 5
+
+add :: (Int, Int) -> Int
+add (x,y) = x + y
+
+add' :: Int -> (Int -> Int)
+add' x y = x + y
+
+add'' :: Int -> (Int -> Int)
+add''  \x y -> x + y
+
+add''' :: Int -> (Int -> Int)
+add''  x = \y -> x + y
+
+let add = (+)
+add :: Num a => a -> a -> a
+
+poly x = let
+    y = x + 1
+    in y * y
+
+sumEvenOdds xs = foldr (+) 0 (map (+1) (filter(\x -> x `mod` 2 ==0) xs))
+
+sumEvenOdds xs = sums (incr (even xs))
+    where 
+      sums xs = foldr (+) 0 xs
+      incr xs = map (+1) xs
+      evens xs = filter (\x -> x `mod` 2 == 0) xs
 -----------------------------------------------------------
 :l baby
 
